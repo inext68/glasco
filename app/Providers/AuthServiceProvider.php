@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Models\Association;
-use App\Models\Association;
 use App\Models\Contact;
 use App\Models\Diocese;
 use App\Models\Group;
