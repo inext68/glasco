@@ -87,3 +87,90 @@
 #4 /home/inext/DEV/glasco/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
 #5 {main}
 "} 
+[2026-05-05 18:00:03] local.ERROR: There are no commands defined in the "key" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"key\" namespace. at /home/inext/DEV/glasco/vendor/symfony/console/Application.php:678)
+[stacktrace]
+#0 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(729): Symfony\\Component\\Console\\Application->findNamespace()
+#1 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 /home/inext/DEV/glasco/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 /home/inext/DEV/glasco/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2026-05-05 18:00:05] local.ERROR: There are no commands defined in the "config" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"config\" namespace. at /home/inext/DEV/glasco/vendor/symfony/console/Application.php:678)
+[stacktrace]
+#0 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(729): Symfony\\Component\\Console\\Application->findNamespace()
+#1 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 /home/inext/DEV/glasco/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 /home/inext/DEV/glasco/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2026-05-05 18:00:08] local.ERROR: There are no commands defined in the "route" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"route\" namespace. at /home/inext/DEV/glasco/vendor/symfony/console/Application.php:678)
+[stacktrace]
+#0 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(729): Symfony\\Component\\Console\\Application->findNamespace()
+#1 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 /home/inext/DEV/glasco/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 /home/inext/DEV/glasco/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2026-05-05 18:00:09] local.ERROR: There are no commands defined in the "view" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"view\" namespace. at /home/inext/DEV/glasco/vendor/symfony/console/Application.php:678)
+[stacktrace]
+#0 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(729): Symfony\\Component\\Console\\Application->findNamespace()
+#1 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 /home/inext/DEV/glasco/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 /home/inext/DEV/glasco/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2026-05-05 18:04:17] local.ERROR: There are no commands defined in the "storage" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"storage\" namespace. at /home/inext/DEV/glasco/vendor/symfony/console/Application.php:678)
+[stacktrace]
+#0 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(729): Symfony\\Component\\Console\\Application->findNamespace()
+#1 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 /home/inext/DEV/glasco/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 /home/inext/DEV/glasco/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2026-05-05 18:05:05] local.ERROR: Command "serve" is not defined. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"serve\" is not defined. at /home/inext/DEV/glasco/vendor/symfony/console/Application.php:745)
+[stacktrace]
+#0 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find()
+#1 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#2 /home/inext/DEV/glasco/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#3 /home/inext/DEV/glasco/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#4 {main}
+"} 
+[2026-05-05 18:05:43] local.ERROR: There are no commands defined in the "storage" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"storage\" namespace. at /home/inext/DEV/glasco/vendor/symfony/console/Application.php:678)
+[stacktrace]
+#0 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(729): Symfony\\Component\\Console\\Application->findNamespace()
+#1 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 /home/inext/DEV/glasco/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 /home/inext/DEV/glasco/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2026-05-05 18:05:45] local.ERROR: Command "migrate" is not defined. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"migrate\" is not defined. at /home/inext/DEV/glasco/vendor/symfony/console/Application.php:745)
+[stacktrace]
+#0 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find()
+#1 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#2 /home/inext/DEV/glasco/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#3 /home/inext/DEV/glasco/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#4 {main}
+"} 
+[2026-05-05 18:05:47] local.ERROR: There are no commands defined in the "db" namespace. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException(code: 0): There are no commands defined in the \"db\" namespace. at /home/inext/DEV/glasco/vendor/symfony/console/Application.php:678)
+[stacktrace]
+#0 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(729): Symfony\\Component\\Console\\Application->findNamespace()
+#1 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find()
+#2 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#3 /home/inext/DEV/glasco/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#4 /home/inext/DEV/glasco/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#5 {main}
+"} 
+[2026-05-05 18:05:48] local.ERROR: Command "serve" is not defined. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"serve\" is not defined. at /home/inext/DEV/glasco/vendor/symfony/console/Application.php:745)
+[stacktrace]
+#0 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(266): Symfony\\Component\\Console\\Application->find()
+#1 /home/inext/DEV/glasco/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#2 /home/inext/DEV/glasco/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#3 /home/inext/DEV/glasco/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#4 {main}
+"} 

@@ -10,6 +10,15 @@ use App\Http\Controllers\PersonRoleAssignmentController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
+// Test route - no middleware needed
+Route::get('/', function () {
+    return response()->json([
+        'message' => 'Laravel Association Manager API',
+        'version' => '1.0',
+        'status' => 'active'
+    ]);
+});
+
 Route::middleware(['web'])->group(function () {
     Route::resource('persons', PersonController::class);
     Route::resource('contacts', ContactController::class);
