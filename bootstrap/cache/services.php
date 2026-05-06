@@ -23,9 +23,16 @@
     19 => 'Illuminate\\Translation\\TranslationServiceProvider',
     20 => 'Illuminate\\Validation\\ValidationServiceProvider',
     21 => 'Illuminate\\View\\ViewServiceProvider',
-    22 => 'Carbon\\Laravel\\ServiceProvider',
-    23 => 'Termwind\\Laravel\\TermwindServiceProvider',
-    24 => 'App\\Providers\\AuthServiceProvider',
+    22 => 'JeroenNoten\\LaravelAdminLte\\AdminLteServiceProvider',
+    23 => 'Laravel\\Boost\\BoostServiceProvider',
+    24 => 'Laravel\\Breeze\\BreezeServiceProvider',
+    25 => 'Laravel\\Mcp\\Server\\McpServiceProvider',
+    26 => 'Laravel\\Roster\\RosterServiceProvider',
+    27 => 'Carbon\\Laravel\\ServiceProvider',
+    28 => 'Termwind\\Laravel\\TermwindServiceProvider',
+    29 => 'App\\Providers\\AuthServiceProvider',
+    30 => 'App\\Providers\\RouteServiceProvider',
+    31 => 'JeroenNoten\\LaravelAdminLte\\AdminLteServiceProvider',
   ),
   'eager' => 
   array (
@@ -39,9 +46,15 @@
     7 => 'Illuminate\\Pagination\\PaginationServiceProvider',
     8 => 'Illuminate\\Session\\SessionServiceProvider',
     9 => 'Illuminate\\View\\ViewServiceProvider',
-    10 => 'Carbon\\Laravel\\ServiceProvider',
-    11 => 'Termwind\\Laravel\\TermwindServiceProvider',
-    12 => 'App\\Providers\\AuthServiceProvider',
+    10 => 'JeroenNoten\\LaravelAdminLte\\AdminLteServiceProvider',
+    11 => 'Laravel\\Boost\\BoostServiceProvider',
+    12 => 'Laravel\\Mcp\\Server\\McpServiceProvider',
+    13 => 'Laravel\\Roster\\RosterServiceProvider',
+    14 => 'Carbon\\Laravel\\ServiceProvider',
+    15 => 'Termwind\\Laravel\\TermwindServiceProvider',
+    16 => 'App\\Providers\\AuthServiceProvider',
+    17 => 'App\\Providers\\RouteServiceProvider',
+    18 => 'JeroenNoten\\LaravelAdminLte\\AdminLteServiceProvider',
   ),
   'deferred' => 
   array (
@@ -184,6 +197,7 @@
     'validator' => 'Illuminate\\Validation\\ValidationServiceProvider',
     'validation.presence' => 'Illuminate\\Validation\\ValidationServiceProvider',
     'Illuminate\\Contracts\\Validation\\UncompromisedVerifier' => 'Illuminate\\Validation\\ValidationServiceProvider',
+    'Laravel\\Breeze\\Console\\InstallCommand' => 'Laravel\\Breeze\\BreezeServiceProvider',
   ),
   'when' => 
   array (
@@ -221,6 +235,9 @@
     array (
     ),
     'Illuminate\\Validation\\ValidationServiceProvider' => 
+    array (
+    ),
+    'Laravel\\Breeze\\BreezeServiceProvider' => 
     array (
     ),
   ),

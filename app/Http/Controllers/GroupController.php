@@ -9,7 +9,7 @@ class GroupController extends Controller
 {
     public function index()
     {
-        return Group::with(['diocese', 'associations', 'persons', 'media', 'personRoleAssignments'])->paginate();
+        return Group::with(['diocese', 'responsible', 'associations', 'persons', 'media', 'personRoleAssignments'])->paginate();
     }
 
     public function store(Request $request)
@@ -18,11 +18,15 @@ class GroupController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'diocese_id' => 'required|exists:dioceses,id',
+            'meeting_place' => 'nullable|string|max:255',
+            'meeting_day' => 'nullable|string|max:50',
+            'meeting_time' => 'nullable|date_format:H:i',
+            'responsible_id' => 'nullable|exists:persons,id',
             'association_ids' => 'nullable|array',
             'association_ids.*' => 'exists:associations,id',
         ]);
 
-        $group = Group::create($request->only('name', 'description', 'diocese_id'));
+        $group = Group::create($request->only('name', 'description', 'diocese_id', 'meeting_place', 'meeting_day', 'meeting_time', 'responsible_id'));
 
         if (! empty($data['association_ids'])) {
             $group->associations()->sync($data['association_ids']);
@@ -33,7 +37,7 @@ class GroupController extends Controller
 
     public function show(Group $group)
     {
-        return $group->load(['diocese', 'associations', 'persons', 'media', 'personRoleAssignments']);
+        return $group->load(['diocese', 'responsible', 'associations', 'persons', 'media', 'personRoleAssignments']);
     }
 
     public function update(Request $request, Group $group)
@@ -42,11 +46,15 @@ class GroupController extends Controller
             'name' => 'sometimes|required|string|max:255',
             'description' => 'nullable|string',
             'diocese_id' => 'sometimes|required|exists:dioceses,id',
+            'meeting_place' => 'nullable|string|max:255',
+            'meeting_day' => 'nullable|string|max:50',
+            'meeting_time' => 'nullable|date_format:H:i',
+            'responsible_id' => 'nullable|exists:persons,id',
             'association_ids' => 'nullable|array',
             'association_ids.*' => 'exists:associations,id',
         ]);
 
-        $group->update($request->only('name', 'description', 'diocese_id'));
+        $group->update($request->only('name', 'description', 'diocese_id', 'meeting_place', 'meeting_day', 'meeting_time', 'responsible_id'));
 
         if (array_key_exists('association_ids', $data)) {
             $group->associations()->sync($data['association_ids'] ?? []);

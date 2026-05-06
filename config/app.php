@@ -165,6 +165,8 @@ return [
         
         // Custom application service providers
         App\Providers\AuthServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
+        JeroenNoten\LaravelAdminLte\AdminLteServiceProvider::class,
     ],
 
     /*

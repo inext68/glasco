@@ -16,10 +16,14 @@ class AssociationController extends Controller
     {
         $data = $request->validate([
             'name' => 'required|string|max:255',
-            'nation' => 'required|string|max:255',
+            'nation' => 'nullable|string|max:255',
             'address' => 'nullable|string|max:500',
             'type' => 'nullable|string|max:100',
         ]);
+
+        if (empty($data['nation'])) {
+            $data['nation'] = null;
+        }
 
         return Association::create($data);
     }
@@ -33,10 +37,14 @@ class AssociationController extends Controller
     {
         $data = $request->validate([
             'name' => 'sometimes|required|string|max:255',
-            'nation' => 'sometimes|required|string|max:255',
+            'nation' => 'nullable|string|max:255',
             'address' => 'nullable|string|max:500',
             'type' => 'nullable|string|max:100',
         ]);
+
+        if (empty($data['nation'])) {
+            $data['nation'] = null;
+        }
 
         $association->update($data);
 

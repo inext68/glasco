@@ -1,0 +1,6 @@
+[2026-05-06 11:59:22] local.ERROR: TypeError: can't access property "className", tabPanel.querySelector(...) is null http://localhost/ 4496 26 TypeError can't access property "className", tabPanel.querySelector(...) is null createTabs@http://localhost/:4496:26
+@http://localhost/:4537:7
+@http://localhost/:4694:3 {"url":"http://localhost/","user_agent":"Mozilla/5.0 (X11; Linux x86_64; rv:150.0) Gecko/20100101 Firefox/150.0","timestamp":"2026-05-06T11:59:22.593Z"} 
+[2026-05-06 11:59:22] local.ERROR: TypeError: can't access property "className", tabPanel.querySelector(...) is null http://localhost/ 4496 26 TypeError can't access property "className", tabPanel.querySelector(...) is null createTabs@http://localhost/:4496:26
+@http://localhost/:4537:7
+@http://localhost/:4694:3 {"url":"http://localhost/","user_agent":"Mozilla/5.0 (X11; Linux x86_64; rv:150.0) Gecko/20100101 Firefox/150.0","timestamp":"2026-05-06T11:59:22.593Z"} 

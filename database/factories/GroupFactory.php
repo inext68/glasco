@@ -16,6 +16,9 @@ class GroupFactory extends Factory
             'name' => $this->faker->words(3, true),
             'description' => $this->faker->sentence,
             'diocese_id' => Diocese::factory(),
+            'meeting_place' => $this->faker->address,
+            'meeting_day' => $this->faker->randomElement(['lunedì', 'martedì', 'mercoledì', 'giovedì', 'venerdì', 'sabato', 'domenica']),
+            'meeting_time' => $this->faker->time,
         ];
     }
 }

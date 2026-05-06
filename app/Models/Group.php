@@ -13,11 +13,20 @@ class Group extends Model
         'name',
         'description',
         'diocese_id',
+        'meeting_place',
+        'meeting_day',
+        'meeting_time',
+        'responsible_id',
     ];
 
     public function diocese()
     {
         return $this->belongsTo(Diocese::class);
+    }
+
+    public function responsible()
+    {
+        return $this->belongsTo(Person::class, 'responsible_id');
     }
 
     public function associations()

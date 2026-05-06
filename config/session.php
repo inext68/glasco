@@ -35,17 +35,12 @@ return [
 
     'expire_on_close' => false,
 
-    /*
-    |--------------------------------------------------------------------------
-    | Session Encryption
-    |--------------------------------------------------------------------------
-    |
-    | This option allows you to easily specify that all of your session data
-    | should be encrypted before it is stored. This is useful if you need to
-    | store sensitive information in the session and do not want it to be
-    | readable by unauthorized parties.
-    |
-    */
+'cookie' => env(
+        'SESSION_COOKIE',
+        'laravel_session'
+    ),
+
+    'lottery' => [2, 100],
 
     'encrypt' => false,
 
@@ -60,7 +55,9 @@ return [
     |
     */
 
-    'path' => '/',
+    'path' => null,
+
+    'files' => storage_path('framework/sessions'),
 
     /*
     |--------------------------------------------------------------------------

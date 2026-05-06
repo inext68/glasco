@@ -1,31 +1,40 @@
 <?php
 
-use App\Http\Controllers\AssociationController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\DioceseController;
-use App\Http\Controllers\GroupController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AssociationWebController;
+use App\Http\Controllers\ContactWebController;
+use App\Http\Controllers\DioceseWebController;
+use App\Http\Controllers\GroupWebController;
 use App\Http\Controllers\MediaController;
-use App\Http\Controllers\PersonController;
-use App\Http\Controllers\PersonRoleAssignmentController;
-use App\Http\Controllers\RoleController;
+use App\Http\Controllers\MediaWebController;
+use App\Http\Controllers\PersonWebController;
+use App\Http\Controllers\PersonRoleAssignmentWebController;
+use App\Http\Controllers\RoleWebController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-// Test route - no middleware needed
 Route::get('/', function () {
-    return response()->json([
-        'message' => 'Laravel Association Manager API',
-        'version' => '1.0',
-        'status' => 'active'
-    ]);
-});
+    return redirect('/dashboard');
+})->middleware('guest');
 
-Route::middleware(['web'])->group(function () {
-    Route::resource('persons', PersonController::class);
-    Route::resource('contacts', ContactController::class);
-    Route::resource('associations', AssociationController::class);
-    Route::resource('dioceses', DioceseController::class);
-    Route::resource('groups', GroupController::class);
-    Route::resource('roles', RoleController::class);
-    Route::resource('person-role-assignments', PersonRoleAssignmentController::class);
-    Route::resource('media', MediaController::class)->only(['index', 'store', 'show', 'destroy']);
+require __DIR__.'/auth.php';
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+    Route::resource('persons', PersonWebController::class);
+    Route::resource('contacts', ContactWebController::class);
+    Route::resource('associations', AssociationWebController::class);
+    Route::resource('dioceses', DioceseWebController::class);
+    Route::resource('groups', GroupWebController::class);
+    Route::resource('roles', RoleWebController::class);
+    Route::resource('person-role-assignments', PersonRoleAssignmentWebController::class);
+    Route::resource('media', MediaWebController::class)->only(['index', 'create', 'store', 'show', 'destroy']);
+
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
