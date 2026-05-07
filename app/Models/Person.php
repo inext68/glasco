@@ -12,17 +12,42 @@ class Person extends Model
     protected $table = 'persons';
 
     protected $fillable = [
+        'unique_code',
         'first_name',
         'last_name',
         'birth_date',
         'gender',
         'notes',
+        'street',
+        'postal_code',
+        'city',
+        'province',
+        'document_number',
+        'document_type',
         'updated_by_person_id',
     ];
 
     protected $casts = [
         'birth_date' => 'date',
     ];
+
+    protected static function booted()
+    {
+        static::creating(function ($person) {
+            if (empty($person->unique_code)) {
+                $person->unique_code = static::generateUniqueCode();
+            }
+        });
+    }
+
+    public static function generateUniqueCode()
+    {
+        do {
+            $code = str_pad(random_int(0, 99999), 5, '0', STR_PAD_LEFT);
+        } while (static::where('unique_code', $code)->exists());
+
+        return $code;
+    }
 
     public function contacts()
     {

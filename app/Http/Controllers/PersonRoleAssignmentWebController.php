@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 class PersonRoleAssignmentWebController extends Controller
 {
     protected $entityTypes = [
+        'person' => Person::class,
         'association' => Association::class,
         'group' => Group::class,
         'diocese' => Diocese::class,
@@ -48,13 +49,20 @@ class PersonRoleAssignmentWebController extends Controller
             if ($entityClass) {
                 $data['entity_type'] = $entityClass;
                 $data['entity_id'] = $entityClass::find($data['entity_id'])?->id;
+            } else {
+                $data['entity_id'] = null;
+                $data['entity_type'] = null;
             }
         } else {
             $data['entity_id'] = null;
             $data['entity_type'] = null;
         }
 
-        PersonRoleAssignment::create($data);
+        $assignment = PersonRoleAssignment::create($data);
+
+        if ($request->expectsJson() || $request->ajax()) {
+            return response()->json(['success' => true, 'assignment' => $assignment]);
+        }
 
         return redirect()->route('person-role-assignments.index')->with('success', 'Assegnazione creata con successo');
     }
@@ -103,6 +111,10 @@ class PersonRoleAssignmentWebController extends Controller
     public function destroy(PersonRoleAssignment $personRoleAssignment)
     {
         $personRoleAssignment->delete();
+
+        if (request()->expectsJson() || request()->ajax()) {
+            return response()->json(['success' => true]);
+        }
 
         return redirect()->route('person-role-assignments.index')->with('success', 'Assegnazione eliminata con successo');
     }

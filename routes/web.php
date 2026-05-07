@@ -14,6 +14,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ImportController;
+use App\Http\Controllers\GroupController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -28,13 +29,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
     Route::resource('persons', PersonWebController::class);
+    Route::post('/persons/{person}/contacts', [PersonWebController::class, 'addContact'])->name('persons.addContact');
+    Route::delete('/persons/{person}/contacts/{contact}', [PersonWebController::class, 'removeContact'])->name('persons.removeContact');
     Route::resource('contacts', ContactWebController::class);
     Route::resource('associations', AssociationWebController::class);
     Route::resource('dioceses', DioceseWebController::class);
     Route::resource('groups', GroupWebController::class);
+    Route::post('/groups/{group}/associations', [GroupController::class, 'attachAssociation'])->name('groups.attachAssociation');
+    Route::delete('/groups/{group}/associations/{association}', [GroupController::class, 'detachAssociation'])->name('groups.detachAssociation');
+    Route::post('/groups/{group}/persons', [GroupController::class, 'attachPerson'])->name('groups.attachPerson');
+    Route::delete('/groups/{group}/persons/{person}', [GroupController::class, 'detachPerson'])->name('groups.detachPerson');
     Route::resource('roles', RoleWebController::class);
     Route::resource('person-role-assignments', PersonRoleAssignmentWebController::class, ['names' => 'person-role-assignments']);
-    Route::get('/person-role-assignments/{person_role_assignment}/show', [PersonRoleAssignmentWebController::class, 'show'])->name('person-role-assignments.show');
     Route::resource('media', MediaWebController::class)->only(['index', 'create', 'store', 'show', 'destroy']);
 
     Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');

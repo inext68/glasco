@@ -34,6 +34,10 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
+        if ($request->expectsJson()) {
+            return response()->json(['success' => true]);
+        }
+
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 

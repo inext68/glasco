@@ -13,6 +13,16 @@ class Association extends Model
         'name',
         'nation',
         'address',
+        'cap',
+        'city',
+        'province',
+        'fiscal_code',
+        'vat_number',
+        'phone',
+        'fax',
+        'email',
+        'website',
+        'other',
         'type',
     ];
 

@@ -34,16 +34,37 @@ class GroupWebController extends Controller
             'meeting_day' => 'nullable|string|max:50',
             'meeting_time' => 'nullable|date_format:H:i',
             'responsible_id' => 'nullable|exists:persons,id',
+            'association_ids' => 'nullable|array',
+            'association_ids.*' => 'exists:associations,id',
+            'persons' => 'nullable|array',
+            'persons.*' => 'exists:persons,id',
         ]);
 
-        Group::create($data);
+        $groupData = $request->only([
+            'name', 'description', 'diocese_id', 'meeting_place', 'meeting_address',
+            'meeting_cap', 'meeting_city', 'meeting_province', 'meeting_day', 'meeting_time', 'responsible_id'
+        ]);
+
+        $group = Group::create($groupData);
+
+        if ($request->has('association_ids')) {
+            $group->associations()->sync($request->association_ids);
+        }
+
+        if ($request->has('persons')) {
+            $personsData = [];
+            foreach ($request->persons as $personId) {
+                $personsData[$personId] = ['is_member_of_group' => true];
+            }
+            $group->persons()->sync($personsData);
+        }
 
         return redirect()->route('groups.index')->with('success', 'Gruppo creato con successo');
     }
 
     public function show(Group $group)
     {
-        $group->load(['diocese', 'responsible', 'personRoleAssignments']);
+        $group->load(['diocese', 'responsible', 'personRoleAssignments', 'persons', 'associations']);
         return view('groups.show', compact('group'));
     }
 
@@ -51,6 +72,7 @@ class GroupWebController extends Controller
     {
         $persons = \App\Models\Person::orderBy('last_name')->orderBy('first_name')->get();
         $dioceses = \App\Models\Diocese::orderBy('name')->get();
+        $group->load('associations');
         return view('groups.edit', compact('group', 'persons', 'dioceses'));
     }
 
@@ -68,9 +90,34 @@ class GroupWebController extends Controller
             'meeting_day' => 'nullable|string|max:50',
             'meeting_time' => 'nullable|date_format:H:i',
             'responsible_id' => 'nullable|exists:persons,id',
+            'association_ids' => 'nullable|array',
+            'association_ids.*' => 'exists:associations,id',
+            'persons' => 'nullable|array',
+            'persons.*' => 'exists:persons,id',
         ]);
 
-        $group->update($data);
+        $groupData = $request->only([
+            'name', 'description', 'diocese_id', 'meeting_place', 'meeting_address',
+            'meeting_cap', 'meeting_city', 'meeting_province', 'meeting_day', 'meeting_time', 'responsible_id'
+        ]);
+
+        $group->update($groupData);
+
+        if ($request->has('association_ids')) {
+            $group->associations()->sync($request->association_ids);
+        } else {
+            $group->associations()->sync([]);
+        }
+
+        if ($request->has('persons')) {
+            $personsData = [];
+            foreach ($request->persons as $personId) {
+                $personsData[$personId] = ['is_member_of_group' => true];
+            }
+            $group->persons()->sync($personsData);
+        } else {
+            $group->persons()->sync([]);
+        }
 
         return redirect()->route('groups.index')->with('success', 'Gruppo aggiornato con successo');
     }

@@ -16,6 +16,7 @@ class User extends Authenticatable
         'email',
         'password',
         'person_id',
+        'column_settings',
     ];
 
     protected $hidden = [
@@ -25,6 +26,7 @@ class User extends Authenticatable
 
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'column_settings' => 'array',
     ];
 
     public function person()

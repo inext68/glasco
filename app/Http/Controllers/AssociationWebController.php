@@ -23,7 +23,17 @@ class AssociationWebController extends Controller
         $data = $request->validate([
             'name' => 'required|string|max:255',
             'nation' => 'nullable|string|max:100',
-            'address' => 'nullable|string',
+            'address' => 'nullable|string|max:255',
+            'cap' => 'nullable|string|max:10',
+            'city' => 'nullable|string|max:100',
+            'province' => 'nullable|string|max:10',
+            'fiscal_code' => 'nullable|string|max:30',
+            'vat_number' => 'nullable|string|max:30',
+            'phone' => 'nullable|string|max:30',
+            'fax' => 'nullable|string|max:30',
+            'email' => 'nullable|string|max:100',
+            'website' => 'nullable|string|max:200',
+            'other' => 'nullable|string',
             'type' => 'nullable|string|max:50',
         ]);
 
@@ -34,7 +44,7 @@ class AssociationWebController extends Controller
 
     public function show(Association $association)
     {
-        $association->load(['groups', 'personRoleAssignments']);
+        $association->load(['groups', 'groups.diocese', 'personRoleAssignments']);
         return view('associations.show', compact('association'));
     }
 
@@ -48,7 +58,17 @@ class AssociationWebController extends Controller
         $data = $request->validate([
             'name' => 'sometimes|required|string|max:255',
             'nation' => 'nullable|string|max:100',
-            'address' => 'nullable|string',
+            'address' => 'nullable|string|max:255',
+            'cap' => 'nullable|string|max:10',
+            'city' => 'nullable|string|max:100',
+            'province' => 'nullable|string|max:10',
+            'fiscal_code' => 'nullable|string|max:30',
+            'vat_number' => 'nullable|string|max:30',
+            'phone' => 'nullable|string|max:30',
+            'fax' => 'nullable|string|max:30',
+            'email' => 'nullable|string|max:100',
+            'website' => 'nullable|string|max:200',
+            'other' => 'nullable|string',
             'type' => 'nullable|string|max:50',
         ]);
 
