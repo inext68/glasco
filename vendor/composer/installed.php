@@ -3,7 +3,7 @@
         'name' => 'glasco/association-manager',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'd76c881dbb3540286824302b3958009964bd317e',
+        'reference' => '2fc60cf45c92dcc3ef2c037f9b065d8c6a12b877',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -94,7 +94,7 @@
         'glasco/association-manager' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'd76c881dbb3540286824302b3958009964bd317e',
+            'reference' => '2fc60cf45c92dcc3ef2c037f9b065d8c6a12b877',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -351,6 +351,24 @@
             'replaced' => array(
                 0 => '10.50.2',
             ),
+        ),
+        'intervention/gif' => array(
+            'pretty_version' => '5.0.0',
+            'version' => '5.0.0.0',
+            'reference' => 'd856f59205aec768059d837148d755c079cdb94a',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../intervention/gif',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'intervention/image' => array(
+            'pretty_version' => '4.0.3',
+            'version' => '4.0.3.0',
+            'reference' => '76d4e5a48b78f7b48f84d90160e6973b1e800832',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../intervention/image',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'jeroennoten/laravel-adminlte' => array(
             'pretty_version' => 'v3.16.0',

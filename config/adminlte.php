@@ -168,6 +168,18 @@ return [
             'url' => 'media',
             'icon' => 'fas fa-fw fa-images',
         ],
+        ['header' => 'Report'],
+        [
+            'text' => 'Report',
+            'url' => '/reports',
+            'icon' => 'fas fa-fw fa-file-alt',
+        ],
+        ['header' => 'Utility'],
+        [
+            'text' => 'Importa',
+            'url' => '/import',
+            'icon' => 'fas fa-fw fa-upload',
+        ],
     ],
 
     'filters' => [

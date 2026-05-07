@@ -15,10 +15,10 @@
                     <thead>
                         <tr>
                             <th>Nome</th>
-                            <th>Descrizione</th>
                             <th>Diocesi</th>
-                            <th>Luogo ritrovo</th>
-                            <th>Giorno/Ora ritrovo</th>
+                            <th>Ritrovo</th>
+                            <th>Indirizzo</th>
+                            <th>Giorno/Ora</th>
                             <th>Responsabile</th>
                             <th>Azioni</th>
                         </tr>
@@ -27,11 +27,17 @@
                         @foreach($groups as $group)
                         <tr>
                             <td>{{ $group->name }}</td>
-                            <td>{{ $group->description ?? '-' }}</td>
                             <td>{{ $group->diocese->name ?? '-' }}</td>
                             <td>{{ $group->meeting_place ?? '-' }}</td>
+                            <td>
+                                @if($group->meeting_address)
+                                    {{ $group->meeting_address }}, {{ $group->meeting_cap }} {{ $group->meeting_city }} ({{ $group->meeting_province }})
+                                @else
+                                    -
+                                @endif
+                            </td>
                             <td>{{ $group->meeting_day ?? '-' }} {{ $group->meeting_time ? \Carbon\Carbon::parse($group->meeting_time)->format('H:i') : '' }}</td>
-                            <td>{{ $group->responsible->surname ?? '' }} {{ $group->responsible->name ?? '' }}</td>
+                            <td>{{ $group->responsible->last_name ?? '' }} {{ $group->responsible->first_name ?? '' }}</td>
                             <td>
                                 <a href="{{ route('groups.show', $group->id) }}" class="btn btn-sm btn-info">Visualizza</a>
                                 <a href="{{ route('groups.edit', $group->id) }}" class="btn btn-sm btn-warning">Modifica</a>

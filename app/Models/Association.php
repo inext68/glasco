@@ -30,4 +30,15 @@ class Association extends Model
     {
         return $this->belongsToMany(Group::class, 'association_group');
     }
+
+    public function persons()
+    {
+        return $this->belongsToMany(Person::class, 'contact_group')
+            ->withPivot('is_member_of_group');
+    }
+
+    public function diocese()
+    {
+        return $this->belongsTo(Diocese::class);
+    }
 }

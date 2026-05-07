@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->foreignId('diocese_id')->constrained('dioceses')->cascadeOnDelete();
+            $table->foreignId('diocese_id')->nullable()->constrained('dioceses')->nullOnDelete();
             $table->timestamps();
         });
     }

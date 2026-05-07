@@ -13,10 +13,10 @@
                     <thead>
                         <tr>
                             <th>Nome</th>
-                            <th>Descrizione</th>
                             <th>Diocesi</th>
-                            <th>Luogo ritrovo</th>
-                            <th>Giorno/Ora ritrovo</th>
+                            <th>Ritrovo</th>
+                            <th>Indirizzo</th>
+                            <th>Giorno/Ora</th>
                             <th>Responsabile</th>
                             <th>Azioni</th>
                         </tr>
@@ -25,11 +25,17 @@
                         <?php $__currentLoopData = $groups; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $group): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
                             <td><?php echo e($group->name); ?></td>
-                            <td><?php echo e($group->description ?? '-'); ?></td>
                             <td><?php echo e($group->diocese->name ?? '-'); ?></td>
                             <td><?php echo e($group->meeting_place ?? '-'); ?></td>
+                            <td>
+                                <?php if($group->meeting_address): ?>
+                                    <?php echo e($group->meeting_address); ?>, <?php echo e($group->meeting_cap); ?> <?php echo e($group->meeting_city); ?> (<?php echo e($group->meeting_province); ?>)
+                                <?php else: ?>
+                                    -
+                                <?php endif; ?>
+                            </td>
                             <td><?php echo e($group->meeting_day ?? '-'); ?> <?php echo e($group->meeting_time ? \Carbon\Carbon::parse($group->meeting_time)->format('H:i') : ''); ?></td>
-                            <td><?php echo e($group->responsible->surname ?? ''); ?> <?php echo e($group->responsible->name ?? ''); ?></td>
+                            <td><?php echo e($group->responsible->last_name ?? ''); ?> <?php echo e($group->responsible->first_name ?? ''); ?></td>
                             <td>
                                 <a href="<?php echo e(route('groups.show', $group->id)); ?>" class="btn btn-sm btn-info">Visualizza</a>
                                 <a href="<?php echo e(route('groups.edit', $group->id)); ?>" class="btn btn-sm btn-warning">Modifica</a>

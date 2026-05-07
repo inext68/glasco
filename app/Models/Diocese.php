@@ -30,4 +30,14 @@ class Diocese extends Model
     {
         return $this->hasMany(Group::class);
     }
+
+    public function associations()
+    {
+        return $this->hasMany(Association::class);
+    }
+
+    public function persons()
+    {
+        return $this->hasManyThrough(Person::class, Association::class);
+    }
 }

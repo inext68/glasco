@@ -23,13 +23,21 @@
                     <tbody>
                         <?php $__currentLoopData = $assignments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $assignment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <td><?php echo e($assignment->person->first_name ?? '-'); ?> <?php echo e($assignment->person->last_name ?? ''); ?></td>
+                            <td><?php echo e($assignment->person->last_name ?? ''); ?> <?php echo e($assignment->person->first_name ?? '-'); ?></td>
                             <td><?php echo e($assignment->role->name ?? '-'); ?></td>
-                            <td><?php echo e($assignment->entity_type ?? '-'); ?></td>
+                            <td><?php echo e($assignment->entity_type ? class_basename($assignment->entity_type) : '-'); ?></td>
+                            <td>
+                                <?php if($assignment->entity): ?>
+                                    <?php echo e($assignment->entity->name); ?>
+
+                                <?php else: ?>
+                                    -
+                                <?php endif; ?>
+                            </td>
                             <td><?php echo e($assignment->start_date ? $assignment->start_date->format('d/m/Y') : '-'); ?></td>
                             <td><?php echo e($assignment->end_date ? $assignment->end_date->format('d/m/Y') : '-'); ?></td>
                             <td>
-                                <a href="<?php echo e(route('person-role-assignments.show', $assignment->id)); ?>" class="btn btn-sm btn-info">Visualizza</a>
+                                <a href="/person-role-assignments/<?php echo e($assignment->id); ?>/show" class="btn btn-sm btn-info">Visualizza</a>
                                 <a href="<?php echo e(route('person-role-assignments.edit', $assignment->id)); ?>" class="btn btn-sm btn-warning">Modifica</a>
                                 <form action="<?php echo e(route('person-role-assignments.destroy', $assignment->id)); ?>" method="POST" style="display:inline;">
                                     <?php echo csrf_field(); ?>

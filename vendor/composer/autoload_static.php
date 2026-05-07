@@ -118,6 +118,8 @@ class ComposerStaticInit53ffbb74d0d4cac7e54d26a76f2d5091
         ),
         'I' => 
         array (
+            'Intervention\\Image\\' => 19,
+            'Intervention\\Gif\\' => 17,
             'Illuminate\\Support\\' => 19,
             'Illuminate\\JsonSchema\\' => 22,
             'Illuminate\\' => 11,
@@ -144,6 +146,7 @@ class ComposerStaticInit53ffbb74d0d4cac7e54d26a76f2d5091
             'Doctrine\\Inflector\\' => 19,
             'Doctrine\\Common\\Lexer\\' => 22,
             'Dflydev\\DotAccessData\\' => 22,
+            'Database\\Seeders\\' => 17,
         ),
         'C' => 
         array (
@@ -388,6 +391,14 @@ class ComposerStaticInit53ffbb74d0d4cac7e54d26a76f2d5091
         array (
             0 => __DIR__ . '/..' . '/jeroennoten/laravel-adminlte/src',
         ),
+        'Intervention\\Image\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/intervention/image/src',
+        ),
+        'Intervention\\Gif\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/intervention/gif/src',
+        ),
         'Illuminate\\Support\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Macroable',
@@ -446,6 +457,10 @@ class ComposerStaticInit53ffbb74d0d4cac7e54d26a76f2d5091
         array (
             0 => __DIR__ . '/..' . '/dflydev/dot-access-data/src',
         ),
+        'Database\\Seeders\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/database/seeders',
+        ),
         'Cron\\' => 
         array (
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
@@ -471,6 +486,8 @@ class ComposerStaticInit53ffbb74d0d4cac7e54d26a76f2d5091
     public static $classMap = array (
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
+        'Database\\Seeders\\DioceseSeeder' => __DIR__ . '/../..' . '/database/seeders/DioceseSeeder.php',
         'DateError' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateError.php',
         'DateException' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateException.php',
         'DateInvalidOperationException' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateInvalidOperationException.php',

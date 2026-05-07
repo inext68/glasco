@@ -12,6 +12,8 @@ return new class extends Migration
             $table->id();
             $table->string('file_name');
             $table->string('file_path');
+            $table->string('file_hash', 64)->unique();
+            $table->string('mime_type')->nullable();
             $table->unsignedBigInteger('mediaable_id');
             $table->string('mediaable_type');
             $table->foreignId('uploaded_by_person_id')->nullable()->constrained('persons')->nullOnDelete();

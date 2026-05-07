@@ -12,6 +12,8 @@ use App\Http\Controllers\PersonRoleAssignmentWebController;
 use App\Http\Controllers\RoleWebController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ImportController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -31,10 +33,22 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('dioceses', DioceseWebController::class);
     Route::resource('groups', GroupWebController::class);
     Route::resource('roles', RoleWebController::class);
-    Route::resource('person-role-assignments', PersonRoleAssignmentWebController::class);
+    Route::resource('person-role-assignments', PersonRoleAssignmentWebController::class, ['names' => 'person-role-assignments']);
+    Route::get('/person-role-assignments/{person_role_assignment}/show', [PersonRoleAssignmentWebController::class, 'show'])->name('person-role-assignments.show');
     Route::resource('media', MediaWebController::class)->only(['index', 'create', 'store', 'show', 'destroy']);
+
+    Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
+    Route::get('/reports/create', [ReportController::class, 'create'])->name('reports.create');
+    Route::post('/reports/generate', [ReportController::class, 'generate'])->name('reports.generate');
+
+    Route::get('/import', [ImportController::class, 'index'])->name('import.index');
+    Route::post('/import', [ImportController::class, 'import'])->name('import.store');
+    Route::get('/import/template', [ImportController::class, 'download'])->name('import.download');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/role-assignments/entities', [PersonRoleAssignmentWebController::class, 'entities']);
+Route::get('/media/entities', [MediaWebController::class, 'entities']);

@@ -25,13 +25,20 @@
                     <tbody>
                         @foreach($assignments as $assignment)
                         <tr>
-                            <td>{{ $assignment->person->first_name ?? '-' }} {{ $assignment->person->last_name ?? '' }}</td>
+                            <td>{{ $assignment->person->last_name ?? '' }} {{ $assignment->person->first_name ?? '-' }}</td>
                             <td>{{ $assignment->role->name ?? '-' }}</td>
-                            <td>{{ $assignment->entity_type ?? '-' }}</td>
+                            <td>{{ $assignment->entity_type ? class_basename($assignment->entity_type) : '-' }}</td>
+                            <td>
+                                @if($assignment->entity)
+                                    {{ $assignment->entity->name }}
+                                @else
+                                    -
+                                @endif
+                            </td>
                             <td>{{ $assignment->start_date ? $assignment->start_date->format('d/m/Y') : '-' }}</td>
                             <td>{{ $assignment->end_date ? $assignment->end_date->format('d/m/Y') : '-' }}</td>
                             <td>
-                                <a href="{{ route('person-role-assignments.show', $assignment->id) }}" class="btn btn-sm btn-info">Visualizza</a>
+                                <a href="/person-role-assignments/{{ $assignment->id }}/show" class="btn btn-sm btn-info">Visualizza</a>
                                 <a href="{{ route('person-role-assignments.edit', $assignment->id) }}" class="btn btn-sm btn-warning">Modifica</a>
                                 <form action="{{ route('person-role-assignments.destroy', $assignment->id) }}" method="POST" style="display:inline;">
                                     @csrf
